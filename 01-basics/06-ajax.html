@@ -15,13 +15,23 @@
 
 	<h1>AlloyUI - Ajax</h1>
 
+	<div id="foo">Loading...</div>
+
 	<!--
 	2 - Start using Alloy UI
 	Then initialize AlloyUI and load a module, e.g., node.
 	-->
 	<script>
-	YUI().use('node', function(Y) {
-		// code goes here
+	YUI().use('io', function(Y) {
+
+		Y.io('../assets/content.html', {
+			on: {
+				success: function(id, xhr) {
+					Y.one('#foo').setHTML(xhr.responseText);
+				}
+			}
+		});
+
 	});
 	</script>
 
