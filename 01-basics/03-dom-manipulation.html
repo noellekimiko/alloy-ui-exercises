@@ -18,24 +18,32 @@
 	<div id="foo">I am a foo element</div>
 
 	<!--
-	2 - Start using Alloy UI
+	2 - Start using AlloyUI
 	Then initialize AlloyUI and load a module, e.g., node.
 	-->
 	<script>
-	YUI().use('node', function(Y) {
+	YUI().use(
+		'node',
+		function(Y) {
 
-		// Set HMTL
+			// Grab the elements
 
-		Y.one('#foo').setHTML('I am a modified foo element');
+			var foo = Y.one('#foo');
 
-		// Change styles
+			// Set HMTL
 
-		Y.one('#foo').setStyles({
-			backgroundColor: 'red',
-			color: 'white'
-		});
+			foo.setHTML('I am a modified foo element');
 
-	});
+			// Change styles
+
+			foo.setStyles(
+				{
+					backgroundColor: 'red',
+					color: 'white'
+				}
+			);
+		}
+	);
 	</script>
 
 </body>

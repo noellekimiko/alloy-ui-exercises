@@ -12,14 +12,14 @@
 	<link href="http://cdn.alloyui.com/2.0.0pr7/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
 
 	<style>
-	#foo {
-		width: 100px;
-		height: 100px;
-		background: red;
-		color: white;
-		cursor: pointer;
-		text-align: center;
-	}
+		#foo {
+			width: 100px;
+			height: 100px;
+			background: red;
+			color: white;
+			cursor: pointer;
+			text-align: center;
+		}
 	</style>
 </head>
 <body class="yui3-skin-sam">
@@ -29,17 +29,32 @@
 	<div id="foo">Click me</div>
 
 	<!--
-	2 - Start using Alloy UI
+	2 - Start using AlloyUI
 	Then initialize AlloyUI and load a module, e.g., node.
 	-->
 	<script>
-	YUI().use('node', 'event', function(Y) {
+	YUI().use(
+		'node',
+		'event',
+		function(Y) {
 
-		Y.one('#foo').on('click', function(event) {
-			event.currentTarget.setHTML('Clicked');
-		});
+			// Grab the elements
 
-	});
+			var foo = Y.one('#foo');
+
+			// Add 'click' event handler
+			//
+			foo.on(
+				'click',
+				function(event) {
+
+					// Set HTML
+
+					event.currentTarget.setHTML('Clicked');
+				}
+			);
+		}
+	);
 	</script>
 
 </body>

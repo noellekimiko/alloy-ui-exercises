@@ -16,31 +16,35 @@
 	<h1>AlloyUI - Dom traversal</h1>
 
 	<ul>
-	    <li>Apricot</li>
-	    <li>Pineapple</li>
-	    <li>Kiwi</li>
-	    <li>Orange</li>
-	    <li>Pomegranate</li>
-	    <li>Lime</li>
-	    <li>Watermelon</li>
-	    <li>Apricot</li>
-	    <li>Pineapple</li>
+		<li>Apricot</li>
+		<li>Pineapple</li>
+		<li>Kiwi</li>
+		<li>Orange</li>
+		<li>Pomegranate</li>
+		<li>Lime</li>
+		<li>Watermelon</li>
+		<li>Apricot</li>
+		<li>Pineapple</li>
 	</ul>
 
 	<!--
-	2 - Start using Alloy UI
+	2 - Start using AlloyUI
 	Then initialize AlloyUI and load a module, e.g., node.
 	-->
 	<script>
-	YUI().use('node', function(Y) {
+	YUI().use(
+		'node',
+		function(Y) {
 
-		var ul = Y.one('ul'),
-			lis = Y.all('li');
+			// Grab the elements
 
-		console.log('Select a single element:', ul);
-		console.log('Select multiple elements:', lis);
+			var ul = Y.one('ul'),
+				lis = Y.all('li');
 
-	});
+			console.log('Select a single element:', ul);
+			console.log('Select multiple elements:', lis);
+		}
+	);
 	</script>
 
 </body>
