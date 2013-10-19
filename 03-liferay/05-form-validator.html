@@ -2,29 +2,23 @@
 
 <h1>AlloyUI - Form Validator</h1>
 
-<form id="myForm">
-	<label class="control-label" for="name">Name:</label>
+<form id="form">
+	<div class="alert alert-success hide" id="success">Success!</div>
+
+	<label for="name">Name:</label>
 	<input id="name" name="name" placeholder="Joe Bloggs" type="text" />
 
-	<label class="control-label" for="email">Email:</label>
+	<label for="email">Email:</label>
 	<input id="email" name="email" placeholder="test@liferay.com" type="text" />
 
-	<label class="control-label" for="date">Birthday:</label>
+	<label for="date">Birthday:</label>
 	<input id="date" name="date" placeholder="mm/dd/yyyy" type="text" />
+
+	<br>
+
+	<button class="btn">Submit</button>
+	<button class="btn" type="reset">Reset</button>
 </form>
-
-<button class="btn" id="submitBtn">Submit</button>
-<button class="btn" id="resetBtn">Reset</button>
-
-<fieldset class="hide" id="output">
-	<legend class="fieldset-legend">
-		<span class="legend">
-			Output
-		</span>
-	</legend>
-
-	<div id="message"></div>
-</fieldset>
 
 <!--
 Start using AlloyUI
@@ -33,13 +27,13 @@ Then initialize AlloyUI and load a module, e.g., node.
 <aui:script use="aui-button,aui-form-validator">
 	// Grab output element
 
-	var output = A.one('#output');
+	var output = Y.one('#output');
 
 	// Initialize form validator and fields
 
-	var formValidator = new A.FormValidator(
+	var formValidator = new Y.FormValidator(
 		{
-			boundingBox: '#myForm',
+			boundingBox: '#form',
 			rules: {
 				email: {
 					email: true,
@@ -53,57 +47,14 @@ Then initialize AlloyUI and load a module, e.g., node.
 					date: true,
 					required: true
 				}
+			},
+			on: {
+				submit: function(event) {
+					Y.one('#success').show();
+
+					event.validator.formEvent.halt();
+				}
 			}
 		}
 	);
-
-	// Initialize AUI button
-
-	new A.Button(
-		{
-			on: {
-				click: function() {
-					formValidator.validate();
-
-					if (!formValidator.hasErrors()) {
-						generateOutput();
-					}
-				}
-			},
-			srcNode: '#submitBtn'
-		}
-	).render();
-
-	// Initialize AUI button
-
-	new A.Button(
-		{
-			on: {
-				click: function() {
-					formValidator.getFieldsByName('name').value = '';
-					formValidator.getFieldsByName('email').value = '';
-					formValidator.getFieldsByName('date').value = '';
-
-					output.hide();
-				}
-			},
-			srcNode: '#resetBtn'
-		}
-	).render();
-
-	// Create generated output
-
-	var generateOutput = function() {
-		var date = A.one('#date');
-		var email = A.one('#email');
-		var messageNode = A.one('#message');
-		var name = A.one('#name');
-		var outputNode = A.one('#output');
-
-		var messageString = 'My name is ' + name.val() + ' and my email address is ' + email.val() + '. My birthday is ' + date.val() + '.';
-
-		messageNode.setHTML(messageString);
-
-		outputNode.show();
-	};
 </aui:script>
