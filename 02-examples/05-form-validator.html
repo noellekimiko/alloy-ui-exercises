@@ -43,13 +43,9 @@
 		'aui-form-validator',
 		function(Y) {
 
-			// Grab output element
-
-			var output = Y.one('#output');
-
 			// Initialize form validator and fields
 
-			var formValidator = new Y.FormValidator(
+			new Y.FormValidator(
 				{
 					boundingBox: '#form',
 					rules: {
