@@ -27,7 +27,7 @@ Then initialize AlloyUI and load a module, e.g., node.
 <aui:script use="aui-button,aui-form-validator">
 	// Initialize form validator and fields
 
-	new Y.FormValidator(
+	new A.FormValidator(
 		{
 			boundingBox: '#form',
 			rules: {
@@ -46,7 +46,7 @@ Then initialize AlloyUI and load a module, e.g., node.
 			},
 			on: {
 				submit: function(event) {
-					Y.one('#success').show();
+					A.one('#success').show();
 
 					event.validator.formEvent.halt();
 				}

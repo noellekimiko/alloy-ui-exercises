@@ -1,6 +1,6 @@
 <%@ include file="/html/portlet/init.jsp" %>
 
-<h1>AlloyUI - Form Validator Taglib</h1>
+<h1>AlloyUI - Liferay.provide()</h1>
 
 <aui:form action="" method="post" name="fm" onSubmit='<%= "event.preventDefault();" + renderResponse.getNamespace() + "generateOutput();" %>'>
 	<aui:input name="name" />
