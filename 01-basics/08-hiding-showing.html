@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AlloyUI - Hiding and Showing</title>
+
+	<!--
+	1 - Copy and paste
+	First load the seed and CSS files.
+	-->
+	<script src="http://cdn.alloyui.com/2.0.0pr7/aui/aui-min.js"></script>
+	<link href="http://cdn.alloyui.com/2.0.0pr7/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
+
+	<style>
+		#foo {
+			width: 100px;
+			height: 100px;
+			background: red;
+			color: white;
+			cursor: pointer;
+			text-align: center;
+		}
+
+		#toggleFoo {
+			width: 100px;
+			height: 100px;
+			background: blue;
+			color: white;
+			cursor: pointer;
+			text-align: center;
+		}
+	</style>
+</head>
+<body class="yui3-skin-sam">
+
+	<h1>AlloyUI - Hiding and Showing</h1>
+
+	<div id="foo">I am a foo element.</div>
+
+	<div id="toggleFoo">Click me to toggle foo visibility.</div>
+
+	<!--
+	2 - Start using AlloyUI
+	Then initialize AlloyUI and load a module, e.g., node.
+	-->
+	<script>
+	YUI().use(
+		'node',
+		'event',
+		function(Y) {
+
+			// Grab the elements
+
+			var toggleFoo = Y.one('#toggleFoo'),
+				foo = Y.one('#foo');
+
+			// Add 'click' event handler
+			//
+			toggleFoo.on(
+				'click',
+				function(event) {
+
+					// Toggle foo visibility
+
+					foo.toggleView();
+
+				}
+			);
+		}
+	);
+	</script>
+
+</body>
+</html>
