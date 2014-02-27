@@ -57,4 +57,33 @@
 		},
 		['aui-node']
 	);
+
+	<%--
+		The above code generates a global function called 'portletNamespace_generateOutput',
+		exactly like the one below.
+
+		function portletNamespace_generateOutput() {
+			AUI().use('aui-node', function() {
+				//..Same code as above..
+			});
+		}
+
+		So why use 'Liferay.provide'?
+
+		For performance:
+
+			Without Liferay.provide, every time portletNamespace_generateOutput is called it must look up its' dependencies.
+
+			Liferay.provide allows the dependencies to be looked up only once, no matter the number of times the function is called.
+
+
+		For consistency:
+
+			Without Liferay.provide, there is a chance that the callbacks are fired in an asynchronous manner.  Meaning that it is
+			possible for the functions to execute in a different order than that in which they were called.
+
+			With Liferay.provide, it is guaranteed that the functions it creates will be executed in the order they are called.
+
+	--%>
+
 </aui:script>
