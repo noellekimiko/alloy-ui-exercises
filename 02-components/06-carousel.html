@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AlloyUI - Carousel</title>
+
+	<!--
+	1 - Copy and paste
+	First load the seed and CSS files.
+	-->
+	<script src="http://cdn.alloyui.com/2.0.0pr7/aui/aui-min.js"></script>
+	<link href="http://cdn.alloyui.com/2.0.0pr7/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
+</head>
+<body class="yui3-skin-sam">
+
+	<h1>AlloyUI - Carousel</h1>
+
+	<div id="carousel">
+		<div class="carousel-item" style="background: url(http://alloyui.com/carousel/img/1.jpg); height:250px; width: 700px;"></div>
+		<div class="carousel-item" style="background: url(http://alloyui.com/carousel/img/2.jpg); height:250px; width: 700px;"></div>
+		<div class="carousel-item" style="background: url(http://alloyui.com/carousel/img/3.jpg); height:250px; width: 700px;"></div>
+		<div class="carousel-item" style="background: url(http://alloyui.com/carousel/img/4.jpg); height:250px; width: 700px;"></div>
+	</div>
+
+	<!--
+	2 - Start using AlloyUI
+	Then initialize AlloyUI and load a module, e.g., node.
+	-->
+	<script>
+	YUI().use(
+		'aui-carousel',
+		function(Y) {
+
+			// Render AUI carousel
+
+			new Y.Carousel(
+				{
+					contentBox: "#carousel",
+					height: 250,
+					width: 700
+				}
+			).render();
+		}
+	);
+	</script>
+
+</body>
+</html>
