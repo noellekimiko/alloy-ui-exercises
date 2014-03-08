@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>AlloyUI - Hiding and Showing</title>
+	<title>AlloyUI - Show/Hide</title>
 
 	<!--
 	1 - Copy and paste
@@ -13,31 +13,21 @@
 
 	<style>
 		#foo {
-			width: 100px;
+			background: #000;
+			color: #FFF;
 			height: 100px;
-			background: red;
-			color: white;
-			cursor: pointer;
-			text-align: center;
-		}
-
-		#toggleFoo {
+			margin: 10px 0;
 			width: 100px;
-			height: 100px;
-			background: blue;
-			color: white;
-			cursor: pointer;
-			text-align: center;
 		}
 	</style>
 </head>
 <body class="yui3-skin-sam">
 
-	<h1>AlloyUI - Hiding and Showing</h1>
+	<h1>AlloyUI - Show/Hide</h1>
 
 	<div id="foo">I am a foo element.</div>
 
-	<div id="toggleFoo">Click me to toggle foo visibility.</div>
+	<input id="toggleBtn" type="button" value="Toggle Visibility" />
 
 	<!--
 	2 - Start using AlloyUI
@@ -51,12 +41,12 @@
 
 			// Grab the elements
 
-			var toggleFoo = Y.one('#toggleFoo'),
-				foo = Y.one('#foo');
+			var foo = Y.one('#foo'),
+				toggleBtn = Y.one('#toggleBtn');
 
 			// Add 'click' event handler
-			//
-			toggleFoo.on(
+
+			toggleBtn.on(
 				'click',
 				function(event) {
 
