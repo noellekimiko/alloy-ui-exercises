@@ -16,5 +16,4 @@
 	<aui:input name="email" />
 
 	<aui:input name="birthday" />
-
 </aui:form>
