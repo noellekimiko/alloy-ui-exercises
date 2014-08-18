@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -19,27 +19,24 @@
 
 	<!--
 	2 - Start using AlloyUI
-	Then initialize AlloyUI and load a module, e.g., node.
+	Then initialize AlloyUI and load a module.
 	-->
 	<script>
-	YUI().use(
-		'aui-button',
-		function(Y) {
+	YUI().use('aui-button', function(Y) {
 
-			// Render AUI button
+		// Render AUI button
 
-			new Y.Button(
-				{
-					on: {
-						click: function(event) {
-							alert('You have clicked the button');
-						}
-					},
-					srcNode: '#foo'
-				}
-			).render();
-		}
-	);
+		new Y.Button(
+			{
+				on: {
+					click: function(event) {
+						alert('You have clicked the button');
+					}
+				},
+				srcNode: '#foo'
+			}
+		).render();
+	});
 	</script>
 
 </body>

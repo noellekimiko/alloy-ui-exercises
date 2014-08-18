@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -30,37 +30,31 @@
 
 	<!--
 	2 - Start using AlloyUI
-	Then initialize AlloyUI and load a module, e.g., node.
+	Then initialize AlloyUI and load a module.
 	-->
 	<script>
-	YUI().use(
-		'transition',
-		function(Y) {
+	YUI().use('transition', function(Y) {
 
-			// Grab the elements
+		// Grab the elements
 
-			var foo = Y.one('#foo');
+		var foo = Y.one('#foo');
 
-			// Add 'click' event handler
+		// Add 'click' event handler
 
-			foo.on(
-				'click',
-				function(event) {
+		foo.on('click', function(event) {
 
-					// Add transition
+			// Add transition
 
-					event.currentTarget.transition(
-						{
-							duration: 1,
-							height: 0,
-							opacity: 0,
-							width: 0
-						}
-					);
+			event.currentTarget.transition(
+				{
+					duration: 1,
+					height: 0,
+					opacity: 0,
+					width: 0
 				}
 			);
-		}
-	);
+		});
+	});
 	</script>
 
 </body>

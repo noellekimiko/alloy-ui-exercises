@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -19,50 +19,47 @@
 
 	<!--
 	2 - Start using AlloyUI
-	Then initialize AlloyUI and load a module, e.g., node.
+	Then initialize AlloyUI and load a module.
 	-->
 	<script>
-	YUI().use(
-		'aui-scheduler',
-		function(Y) {
+	YUI().use('aui-scheduler', function(Y) {
 
-			// Create calendar events for AUI scheduler
+		// Create calendar events for AUI scheduler
 
-			var events = [
-				{
-					content: 'Symposium Workshop',
-					endDate: new Date(2014, 9, 19, 18),
-					startDate: new Date(2014, 9, 19, 16)
-				},
-				{
-					content: 'Symposium Workshop',
-					endDate: new Date(2014, 9, 20, 15),
-					startDate: new Date(2014, 9, 20, 14)
-				}
-			];
+		var events = [
+			{
+				content: 'Symposium Workshop',
+				endDate: new Date(2014, 9, 19, 18),
+				startDate: new Date(2014, 9, 19, 16)
+			},
+			{
+				content: 'Symposium Workshop',
+				endDate: new Date(2014, 9, 20, 15),
+				startDate: new Date(2014, 9, 20, 14)
+			}
+		];
 
-			// Initialize AUI scheduler views
+		// Initialize AUI scheduler views
 
-			var agendaView = new Y.SchedulerAgendaView();
-			var dayView = new Y.SchedulerDayView();
-			var eventRecorder = new Y.SchedulerEventRecorder();
-			var monthView = new Y.SchedulerMonthView();
-			var weekView = new Y.SchedulerWeekView();
+		var agendaView = new Y.SchedulerAgendaView();
+		var dayView = new Y.SchedulerDayView();
+		var eventRecorder = new Y.SchedulerEventRecorder();
+		var monthView = new Y.SchedulerMonthView();
+		var weekView = new Y.SchedulerWeekView();
 
-			// Initialize AUI scheduler
+		// Initialize AUI scheduler
 
-			new Y.Scheduler(
-				{
-					boundingBox: '#scheduler',
-					date: new Date(2014, 9, 19),
-					eventRecorder: eventRecorder,
-					items: events,
-					render: true,
-					views: [dayView, weekView, monthView, agendaView]
-				}
-			);
-		}
-	);
+		new Y.Scheduler(
+			{
+				boundingBox: '#scheduler',
+				date: new Date(2014, 9, 19),
+				eventRecorder: eventRecorder,
+				items: events,
+				render: true,
+				views: [dayView, weekView, monthView, agendaView]
+			}
+		);
+	});
 	</script>
 
 </body>

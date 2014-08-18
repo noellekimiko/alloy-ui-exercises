@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -24,24 +24,21 @@
 
 	<!--
 	2 - Start using AlloyUI
-	Then initialize AlloyUI and load a module, e.g., node.
+	Then initialize AlloyUI and load a module.
 	-->
 	<script>
-	YUI().use(
-		'aui-carousel',
-		function(Y) {
+	YUI().use('aui-carousel', function(Y) {
 
-			// Render AUI carousel
+		// Render AUI carousel
 
-			new Y.Carousel(
-				{
-					contentBox: "#carousel",
-					height: 250,
-					width: 700
-				}
-			).render();
-		}
-	);
+		new Y.Carousel(
+			{
+				contentBox: "#carousel",
+				height: 250,
+				width: 700
+			}
+		).render();
+	});
 	</script>
 
 </body>

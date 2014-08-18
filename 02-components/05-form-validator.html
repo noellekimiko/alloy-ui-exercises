@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -35,44 +35,40 @@
 
 	<!--
 	2 - Start using AlloyUI
-	Then initialize AlloyUI and load a module, e.g., node.
+	Then initialize AlloyUI and load a module.
 	-->
 	<script>
-	YUI().use(
-		'aui-button',
-		'aui-form-validator',
-		function(Y) {
+	YUI().use('aui-button', 'aui-form-validator', function(Y) {
 
-			// Initialize form validator and fields
+		// Initialize form validator and fields
 
-			new Y.FormValidator(
-				{
-					boundingBox: '#form',
-					rules: {
-						email: {
-							email: true,
-							required: true
-						},
-						name: {
-							alpha: true,
-							required: true
-						},
-						date: {
-							date: true,
-							required: true
-						}
+		new Y.FormValidator(
+			{
+				boundingBox: '#form',
+				rules: {
+					email: {
+						email: true,
+						required: true
 					},
-					on: {
-						submit: function(event) {
-							Y.one('#success').show();
+					name: {
+						alpha: true,
+						required: true
+					},
+					date: {
+						date: true,
+						required: true
+					}
+				},
+				on: {
+					submit: function(event) {
+						Y.one('#success').show();
 
-							event.validator.formEvent.halt();
-						}
+						event.validator.formEvent.halt();
 					}
 				}
-			);
-		}
-	);
+			}
+		);
+	});
 	</script>
 
 </body>

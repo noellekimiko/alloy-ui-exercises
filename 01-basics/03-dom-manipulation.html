@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -19,31 +19,28 @@
 
 	<!--
 	2 - Start using AlloyUI
-	Then initialize AlloyUI and load a module, e.g., node.
+	Then initialize AlloyUI and load a module.
 	-->
 	<script>
-	YUI().use(
-		'node',
-		function(Y) {
+	YUI().use('node', function(Y) {
 
-			// Grab the elements
+		// Grab the elements
 
-			var foo = Y.one('#foo');
+		var foo = Y.one('#foo');
 
-			// Set HMTL
+		// Set HMTL
 
-			foo.setHTML('I am a modified foo element');
+		foo.setHTML('I am a modified foo element');
 
-			// Change styles
+		// Change styles
 
-			foo.setStyles(
-				{
-					backgroundColor: 'red',
-					color: 'white'
-				}
-			);
-		}
-	);
+		foo.setStyles(
+			{
+				backgroundColor: 'red',
+				color: 'white'
+			}
+		);
+	});
 	</script>
 
 </body>

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -31,33 +31,26 @@
 
 	<!--
 	2 - Start using AlloyUI
-	Then initialize AlloyUI and load a module, e.g., node.
+	Then initialize AlloyUI and load a module.
 	-->
 	<script>
-	YUI().use(
-		'node',
-		'event',
-		function(Y) {
+	YUI().use('node', 'event', function(Y) {
 
-			// Grab the elements
+		// Grab the elements
 
-			var foo = Y.one('#foo'),
-				toggleBtn = Y.one('#toggleBtn');
+		var foo = Y.one('#foo'),
+			toggleBtn = Y.one('#toggleBtn');
 
-			// Add 'click' event handler
+		// Add 'click' event handler
 
-			toggleBtn.on(
-				'click',
-				function(event) {
+		toggleBtn.on('click', function(event) {
 
-					// Toggle foo visibility
+			// Toggle foo visibility
 
-					foo.toggleView();
+			foo.toggleView();
 
-				}
-			);
-		}
-	);
+		});
+	});
 	</script>
 
 </body>

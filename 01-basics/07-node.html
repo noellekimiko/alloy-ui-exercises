@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -19,35 +19,32 @@
 
 	<!--
 	2 - Start using AlloyUI
-	Then initialize AlloyUI and load a module, e.g., node.
+	Then initialize AlloyUI and load a module.
 	-->
 	<script>
-	YUI().use(
-		'aui-node',
-		function(Y) {
+	YUI().use('aui-node', function(Y) {
 
-			// Grab the elements
+		// Grab the elements
 
-			var foo = Y.one('#foo');
+		var foo = Y.one('#foo');
 
-			// Create HTML node
+		// Create HTML node
 
-			var node = Y.Node.create('<div />');
+		var node = Y.Node.create('<div />');
 
-			// Set CSS styles
+		// Set CSS styles
 
-			node.setStyle('background', 'black');
-			node.setStyle('color', 'white');
+		node.setStyle('background', 'black');
+		node.setStyle('color', 'white');
 
-			// Set HTML
+		// Set HTML
 
-			node.setHTML('I am a bar element');
+		node.setHTML('I am a bar element');
 
-			// Append node
+		// Append node
 
-			foo.append(node);
-		}
-	);
+		foo.append(node);
+	});
 	</script>
 
 </body>

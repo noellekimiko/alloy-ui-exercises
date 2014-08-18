@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -85,228 +85,219 @@
 
 	<!--
 	2 - Start using AlloyUI
-	Then initialize AlloyUI and load a module, e.g., node.
+	Then initialize AlloyUI and load a module.
 	-->
 	<script>
-	YUI().use(
-		'aui-button',
-		'aui-char-counter',
-		'aui-datepicker',
-		'aui-form-validator',
-		'aui-image-cropper',
-		'aui-pagination',
-		'aui-progressbar',
-		function(Y) {
+	YUI().use('aui-button', 'aui-char-counter', 'aui-datepicker', 'aui-form-validator', 'aui-image-cropper', 'aui-pagination', 'aui-progressbar', function(Y) {
 
-			// Create variables
+		// Create variables
 
-			var formValidator = [];
+		var formValidator = [];
 
-			// Grab pages
-			var forms = Y.all('.form');
-			var pages = Y.all('.page');
+		// Grab pages
+		var forms = Y.all('.form');
+		var pages = Y.all('.page');
 
-			// Grab output element
+		// Grab output element
 
-			var output = Y.one('#output');
+		var output = Y.one('#output');
 
-			// Update progress bar
+		// Update progress bar
 
-			var updateProgress = function() {
-				var validForms = 0;
+		var updateProgress = function() {
+			var validForms = 0;
 
-				for (var i = 0; i < formValidator.length; i++) {
-					formValidator[i].validate();
+			for (var i = 0; i < formValidator.length; i++) {
+				formValidator[i].validate();
 
-					if (!formValidator[i].hasErrors()) {
-						validForms++;
+				if (!formValidator[i].hasErrors()) {
+					validForms++;
+				}
+			}
+
+			var ratio = Math.round(validForms/formValidator.length * 100);
+
+			progressBar.set('value', ratio);
+		};
+
+		// Create progress bar
+
+		var progressBar = new Y.ProgressBar(
+			{
+				boundingBox: '#progressBar',
+				label: '0%',
+				on: {
+					complete: function(event) {
+						this.set('label', 'Complete!');
+					},
+					valueChange: function(event) {
+						this.set('label', event.newVal + '%');
 					}
-				}
+				},
+				value: 0,
+				width: 700
+			}
+		).render();
 
-				var ratio = Math.round(validForms/formValidator.length * 100);
+		// Create paginator
 
-				progressBar.set('value', ratio);
-			};
+		new Y.Pagination(
+			{
+				after: {
+					changeRequest: function(event) {
+						if (event.state.page === 2 && !imgCropper.rendered) {
+							imgCropper.render();
 
-			// Create progress bar
-
-			var progressBar = new Y.ProgressBar(
-				{
-					boundingBox: '#progressBar',
-					label: '0%',
-					on: {
-						complete: function(event) {
-							this.set('label', 'Complete!');
-						},
-						valueChange: function(event) {
-							this.set('label', event.newVal + '%');
-						}
-					},
-					value: 0,
-					width: 700
-				}
-			).render();
-
-			// Create paginator
-
-			new Y.Pagination(
-				{
-					after: {
-						changeRequest: function(event) {
-							if (event.state.page === 2 && !imgCropper.rendered) {
-								imgCropper.render();
-
-								imgCropper.rendered = true;
-							}
-						}
-					},
-					boundingBox: '#pagination',
-					circular: false,
-					contentBox: '#pagination .pagination-content',
-					on: {
-						changeRequest: function(event) {
-							var lastState = event.lastState,
-								state = event.state;
-
-							if (lastState) {
-								pages.item(lastState.page - 1).hide();
-
-								updateProgress();
-							}
-
-							pages.item(state.page - 1).show();
-						}
-					},
-					page: 1
-				}
-			).render();
-
-			// Initialize form validator and fields
-
-			formValidator[0] = new Y.FormValidator(
-				{
-					boundingBox: '#form1',
-					rules: {
-						email: {
-							email: true,
-							required: true
-						},
-						name: {
-							alpha: true,
-							required: true
+							imgCropper.rendered = true;
 						}
 					}
-				}
-			);
+				},
+				boundingBox: '#pagination',
+				circular: false,
+				contentBox: '#pagination .pagination-content',
+				on: {
+					changeRequest: function(event) {
+						var lastState = event.lastState,
+							state = event.state;
 
-			formValidator[1] = new Y.FormValidator(
-				{
-					boundingBox: '#form2',
-					fieldStrings: {
-						charInput: 'Word must be between 1 and 160 characters.'
-					},
-					rules: {
-						charInput: {
-							rangeLength: [1, 160],
-							required: true
-						}
-					}
-				}
-			);
+						if (lastState) {
+							pages.item(lastState.page - 1).hide();
 
-			// Initialize AUI button
-
-			new Y.Button(
-				{
-					on: {
-						click: function() {
 							updateProgress();
+						}
 
-							var validForms = 0;
+						pages.item(state.page - 1).show();
+					}
+				},
+				page: 1
+			}
+		).render();
 
-							var formValidatorLength = formValidator.length;
+		// Initialize form validator and fields
 
-							for (var i = 0; i < formValidatorLength; i++) {
-								if (!formValidator[i].hasErrors()) {
-									validForms++;
-								}
+		formValidator[0] = new Y.FormValidator(
+			{
+				boundingBox: '#form1',
+				rules: {
+					email: {
+						email: true,
+						required: true
+					},
+					name: {
+						alpha: true,
+						required: true
+					}
+				}
+			}
+		);
+
+		formValidator[1] = new Y.FormValidator(
+			{
+				boundingBox: '#form2',
+				fieldStrings: {
+					charInput: 'Word must be between 1 and 160 characters.'
+				},
+				rules: {
+					charInput: {
+						rangeLength: [1, 160],
+						required: true
+					}
+				}
+			}
+		);
+
+		// Initialize AUI button
+
+		new Y.Button(
+			{
+				on: {
+					click: function() {
+						updateProgress();
+
+						var validForms = 0;
+
+						var formValidatorLength = formValidator.length;
+
+						for (var i = 0; i < formValidatorLength; i++) {
+							if (!formValidator[i].hasErrors()) {
+								validForms++;
 							}
-
-							if (validForms != formValidatorLength) {
-								validForms = 0;
-							}
-
-							generateOutput(validForms);
 						}
-					},
-					srcNode: '#submitBtn'
-				}
-			).render();
 
-			// Create generated output
-
-			var generateOutput = function(valid) {
-				var messageNode = Y.one('#message');
-				var outputNode = Y.one('#output');
-
-				var cssClass = valid ? "text-success" : "text-error";
-				var messageString = valid ? "All forms are complete!" : "Please fill out the entire form!";
-
-				var message = Y.Node.create("<div class='" + cssClass + "'>" + messageString + "</div>");
-
-				messageNode.setHTML(message);
-
-				outputNode.show();
-			};
-
-			// Initialize AUI button
-
-			new Y.Button(
-				{
-					on: {
-						click: function() {
-							location.reload();
+						if (validForms != formValidatorLength) {
+							validForms = 0;
 						}
-					},
-					srcNode: '#resetBtn'
-				}
-			).render();
 
-			// Initialize datepicker
+						generateOutput(validForms);
+					}
+				},
+				srcNode: '#submitBtn'
+			}
+		).render();
 
-			new Y.DatePicker(
-				{
-					on: {
-						selectionChange: function(event) {
-							console.log(event.newSelection)
-						}
-					},
-					popover: {
-						zIndex: 1
-					},
-					trigger: '#date'
-				}
-			);
+		// Create generated output
 
-			// Initialize char counter
+		var generateOutput = function(valid) {
+			var messageNode = Y.one('#message');
+			var outputNode = Y.one('#output');
 
-			var charCounter = new Y.CharCounter(
-				{
-					counter: '#counter',
-					input: '#charInput',
-					maxLength: 160
-				}
-			);
+			var cssClass = valid ? "text-success" : "text-error";
+			var messageString = valid ? "All forms are complete!" : "Please fill out the entire form!";
 
-			// Initialize image cropper
+			var message = Y.Node.create("<div class='" + cssClass + "'>" + messageString + "</div>");
 
-			var imgCropper = new Y.ImageCropper(
-				{
-					srcNode: '#image'
-				}
-			);
-		}
-	);
+			messageNode.setHTML(message);
+
+			outputNode.show();
+		};
+
+		// Initialize AUI button
+
+		new Y.Button(
+			{
+				on: {
+					click: function() {
+						location.reload();
+					}
+				},
+				srcNode: '#resetBtn'
+			}
+		).render();
+
+		// Initialize datepicker
+
+		new Y.DatePicker(
+			{
+				on: {
+					selectionChange: function(event) {
+						console.log(event.newSelection)
+					}
+				},
+				popover: {
+					zIndex: 1
+				},
+				trigger: '#date'
+			}
+		);
+
+		// Initialize char counter
+
+		var charCounter = new Y.CharCounter(
+			{
+				counter: '#counter',
+				input: '#charInput',
+				maxLength: 160
+			}
+		);
+
+		// Initialize image cropper
+
+		var imgCropper = new Y.ImageCropper(
+			{
+				srcNode: '#image'
+			}
+		);
+	});
 	</script>
 
 </body>
