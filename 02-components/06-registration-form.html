@@ -90,17 +90,9 @@
 	<script>
 	YUI().use('aui-button', 'aui-char-counter', 'aui-datepicker', 'aui-form-validator', 'aui-image-cropper', 'aui-pagination', 'aui-progressbar', function(Y) {
 
-		// Create variables
+		// Create formValidator variable
 
 		var formValidator = [];
-
-		// Grab pages
-
-		var pages = Y.all('.page');
-
-		// Grab output element
-
-		var output = Y.one('#output');
 
 		// Update progress bar
 
@@ -138,6 +130,10 @@
 				width: 700
 			}
 		).render();
+
+		// Grab pages
+
+		var pages = Y.all('.page');
 
 		// Create paginator
 
@@ -206,6 +202,40 @@
 			}
 		);
 
+		// Initialize datepicker
+
+		new Y.DatePicker(
+			{
+				on: {
+					selectionChange: function(event) {
+						console.log(event.newSelection)
+					}
+				},
+				popover: {
+					zIndex: 1
+				},
+				trigger: '#date'
+			}
+		);
+
+		// Initialize image cropper
+
+		var imgCropper = new Y.ImageCropper(
+			{
+				srcNode: '#image'
+			}
+		);
+
+		// Initialize char counter
+
+		var charCounter = new Y.CharCounter(
+			{
+				counter: '#counter',
+				input: '#charInput',
+				maxLength: 160
+			}
+		);
+
 		// Initialize AUI button
 
 		new Y.Button(
@@ -235,6 +265,23 @@
 			}
 		).render();
 
+		// Initialize AUI button
+
+		new Y.Button(
+			{
+				on: {
+					click: function() {
+						location.reload();
+					}
+				},
+				srcNode: '#resetBtn'
+			}
+		).render();
+
+		// Grab output element
+
+		var output = Y.one('#output');
+
 		// Create generated output
 
 		var generateOutput = function(valid) {
@@ -250,53 +297,6 @@
 
 			outputNode.show();
 		};
-
-		// Initialize AUI button
-
-		new Y.Button(
-			{
-				on: {
-					click: function() {
-						location.reload();
-					}
-				},
-				srcNode: '#resetBtn'
-			}
-		).render();
-
-		// Initialize datepicker
-
-		new Y.DatePicker(
-			{
-				on: {
-					selectionChange: function(event) {
-						console.log(event.newSelection)
-					}
-				},
-				popover: {
-					zIndex: 1
-				},
-				trigger: '#date'
-			}
-		);
-
-		// Initialize char counter
-
-		var charCounter = new Y.CharCounter(
-			{
-				counter: '#counter',
-				input: '#charInput',
-				maxLength: 160
-			}
-		);
-
-		// Initialize image cropper
-
-		var imgCropper = new Y.ImageCropper(
-			{
-				srcNode: '#image'
-			}
-		);
 	});
 	</script>
 
