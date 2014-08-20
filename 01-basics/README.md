@@ -1,20 +1,20 @@
 Basics
 ==================
 
-Basic examples using mostly YUI components. AUI is built on YUI, so it is useful to be familiar with both.
+Basic examples using YUI components. AUI is built on YUI, so it is useful to be familiar with both.
 
 ## Table of contents
 
-1. [Setup](#setup)
-2. [DOM Traversal](#dom-traversal)
-3. [DOM Manipulation](#dom-manipulation)
-4. [Events](#events)
-5. [Effects](#effects)
-6. [Ajax](#ajax)
-7. [Node](#node)
-8. [Show/Hide](#show-hide)
+1. [Setup](#1-setup)
+2. [DOM Traversal](#2-dom-traversal)
+3. [DOM Manipulation](#3-dom-manipulation)
+4. [Events](#4-events)
+5. [Effects](#5-effects)
+6. [Ajax](#6-ajax)
+7. [Node](#7-node)
+8. [Show/Hide](#8-showhide)
 
-## Setup
+## 1. Setup
 
 * First, we set up a basic HTML page to use, giving it a title and a header for this exercise.
 
@@ -66,7 +66,7 @@ Basic examples using mostly YUI components. AUI is built on YUI, so it is useful
 
 **Completed example: [01-setup.html](https://github.com/eduardolundgren/alloy-ui-exercises/blob/master/01-basics/01-setup.html)**
 
-## DOM Traversal
+## 2. DOM Traversal
 
 * We start by getting our page setup like in part 1. Give the page the correct header and title for this exercise, load the AlloyUI seed and Bootstrap files and initialize AlloyUI.
 
@@ -139,7 +139,7 @@ Basic examples using mostly YUI components. AUI is built on YUI, so it is useful
 
 **Completed example: [02-dom-traversal.html](https://github.com/eduardolundgren/alloy-ui-exercises/blob/master/01-basics/02-dom-traversal.html)**
 
-## DOM Manipulation
+## 3. DOM Manipulation
 
 * Setup the file like the previous exercises, this time with the title and heading `AlloyUI - DOM manipulation`. See if you can remember all the necessary components on your own.
 
@@ -188,7 +188,7 @@ YUI().use('node', function(Y) {
 
 **Completed example: [03-dom-manipulation.html](https://github.com/eduardolundgren/alloy-ui-exercises/blob/master/01-basics/03-dom-manipulation.html)**
 
-## Events
+## 4. Events
 
 * Setup the file with title and heading `AlloyUI - Events`.
 
@@ -263,7 +263,7 @@ YUI().use('node', 'event', function(Y) {
 
 **Completed example: [04-events.html](https://github.com/eduardolundgren/alloy-ui-exercises/blob/master/01-basics/04-events.html)**
 
-## Effects
+## 5. Effects
 
 * Building on the last exercise, let's change what happens when the `foo` element is clicked: instead of changing the inner HTML, let's make it shrink and disappear.
 
@@ -343,9 +343,9 @@ YUI().use('transition', function(Y) {
 
 **Completed example: [05-effects.html](https://github.com/eduardolundgren/alloy-ui-exercises/blob/master/01-basics/05-effects.html)**
 
-## Ajax
+## 6. Ajax
 
-* This exercise requires a bit more setup than the previous ones. We will be using the YUI `io` module which creates an AJAX request to get another file. Due to security features, we need to have the file for the exercise and the content it is loading hosted on a web server application. We will use xampp in this example. There is an in depth tutorial to set it up [here](https://www.udemy.com/blog/xampp-tutorial/), or you can follow the abbreviated directions below.
+* This exercise requires a bit more setup than the previous ones. We will be using the YUI `io` module which creates an AJAX request to get another file. Due to security features, we need to have the file for the exercise and the content it is loading hosted on a web server application. We will use XAMPP in this example. There is an in depth tutorial to set it up [here](https://www.udemy.com/blog/xampp-tutorial/), or you can follow the abbreviated directions below.
 
 > **Setting Up XAMPP**
 
@@ -353,11 +353,11 @@ YUI().use('transition', function(Y) {
 
 > * Follow the directions in its installer and open it up to the control panel.
 
-> * Start the Apache server. Then, navigate to http://localhost in a web browser to test that it is running correctly. You should see a screen that prompts you to select your language.
+> * Start the Apache server. Then, navigate to `http://localhost` in a web browser to test that it is running correctly. You should see a screen that prompts you to select your language.
 
-* We're ready to set up our usual html file. This file, however, will not be placed in the repository with the other files. Instead, it should be created to be run with XAMPP. In XAMPP, files are placed in C:/xampp/htdocs and then accessed with the url http://localhost/[FILE NAME].
+* We're ready to set up our usual html file. This file, however, will not be placed in the repository with the other files. Instead, it should be created to be run with XAMPP. In XAMPP, files are placed in `C:/xampp/htdocs` and then accessed with the url `http://localhost/[FILE NAME]`.
 
-* Navigate to your C:/xampp/htdocs directory. Let's make a folder for this exercise, called "alloy-ui-exercises". Then create the file for this exercise as always, with the title and heading `Alloy UI - Ajax`.
+* Navigate to your `C:/xampp/htdocs` directory. Let's make a folder for this exercise, called `alloy-ui-exercises`. Then create the file for this exercise as always, with the title and heading `Alloy UI - Ajax`.
 
 * We will also put the content that we want to load into this file. Copy [this file](https://github.com/eduardolundgren/alloy-ui-exercises/blob/master/assets/content.html) into the folder and save it as `content.html`.
 
@@ -380,7 +380,7 @@ YUI().use('transition', function(Y) {
 </script>
 ```
 
-* The first detail that we will specify is where to get the content. When the XAMPP server is running, we will be able to access the `content.html` file at http://localhost/alloy-ui-exercises/content.html, so that is the url we will use.
+* The first detail that we will specify is where to get the content. When the XAMPP server is running, we will be able to access the `content.html` file at `http://localhost/alloy-ui-exercises/content.html`, so that is the url we will use.
 
 ```html
 <script>
@@ -437,14 +437,14 @@ YUI().use('transition', function(Y) {
 </script>
 ```
 
-* Finally, we are ready to run the example. Instead of just opening it with a browser like the other exercises, we need to access it via our XAMPP server. Go to http://localhost/alloy-ui-exercises/06-ajax.html in your browser (assuming your file for this exercise is titled 06-ajax.html), and you should see the header that was set in `06-ajax.html` but with the inner text from `contents.html`.
+* Finally, we are ready to run the example. Instead of just opening it with a browser like the other exercises, we need to access it via our XAMPP server. Go to `http://localhost/alloy-ui-exercises/06-ajax.html` in your browser (assuming your file for this exercise is titled `06-ajax.html`), and you should see the header that was set in `06-ajax.html` but with the inner text from `contents.html`.
 
 * Be sure to stop your XAMPP server when you are finished.
 
 **Completed example: [06-ajax.html](https://github.com/eduardolundgren/alloy-ui-exercises/blob/master/01-basics/06-ajax.html)**
-> Note: This example uses relative paths, and will not run correctly if you just open the file with a web browser
+> Note: The completed example uses relative paths, and will not run correctly if you just open the file with a web browser
 
-## Node
+## 7. Node
 
 * In this exercise, we use the `node` module to create a new HTML object instead of just manipulating existing ones.
 
@@ -460,7 +460,7 @@ YUI().use('transition', function(Y) {
 
 ```html
 <script>
-	YUI().use('aui-node', function(Y) {
+	YUI().use('node', function(Y) {
 		// Grab the element
 		var foo = Y.one('#foo');
 	});
@@ -471,7 +471,7 @@ YUI().use('transition', function(Y) {
 
 ```html
 <script>
-	YUI().use('aui-node', function(Y) {
+	YUI().use('node', function(Y) {
 		// Grab the elements
 		var foo = Y.one('#foo');
 
@@ -485,7 +485,7 @@ YUI().use('transition', function(Y) {
 
 ```html
 <script>
-	YUI().use('aui-node', function(Y) {
+	YUI().use('node', function(Y) {
 		// Grab the elements
 		var foo = Y.one('#foo');
 
@@ -506,7 +506,7 @@ YUI().use('transition', function(Y) {
 
 ```html
 <script>
-	YUI().use('aui-node', function(Y) {
+	YUI().use('node', function(Y) {
 		// Grab the elements
 		var foo = Y.one('#foo');
 
@@ -528,9 +528,9 @@ YUI().use('transition', function(Y) {
 
 **Completed example: [07-node.html](https://github.com/eduardolundgren/alloy-ui-exercises/blob/master/01-basics/07-node.html)**
 
-## Show/Hide
+## 8. Show/Hide
 
-* In this exercise, we will create a element that can be dynamically hidden and shown. Set up your document as usual with the title and heading `AlloyUI - Show\Hide`.
+* In this exercise, we will create a element that can be dynamically hidden and shown. Set up your document as usual with the title and heading `AlloyUI - Show/Hide`.
 
 * Inside the `<body>`, we will create a `foo` element and a `<button>` to toggle its visibility on and off.
 
