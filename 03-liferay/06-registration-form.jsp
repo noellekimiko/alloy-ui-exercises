@@ -112,7 +112,6 @@ Then initialize AlloyUI and load a module, e.g., node.
 	).render();
 
 	// Grab pages
-	var forms = A.all('.portlet06_form');
 	var pages = A.all('.portlet06_page');
 
 	// Create paginator
@@ -170,9 +169,6 @@ Then initialize AlloyUI and load a module, e.g., node.
 	formValidator[1] = new A.FormValidator(
 		{
 			boundingBox: '#portlet06_form2',
-			fieldStrings: {
-				charInput: 'Word must be between 1 and 160 characters.'
-			},
 			rules: {
 				portlet06_charInput: {
 					rangeLength: [1, 160],
@@ -186,11 +182,6 @@ Then initialize AlloyUI and load a module, e.g., node.
 
 	new A.DatePicker(
 		{
-			on: {
-				selectionChange: function(event) {
-					console.log(event.newSelection)
-				}
-			},
 			popover: {
 				zIndex: 1
 			},
@@ -200,7 +191,7 @@ Then initialize AlloyUI and load a module, e.g., node.
 
 	// Initialize char counter
 
-	var charCounter = new A.CharCounter(
+	new A.CharCounter(
 		{
 			counter: '#portlet06_counter',
 			input: '#portlet06_charInput',
