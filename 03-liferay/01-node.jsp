@@ -16,7 +16,7 @@ Then initialize AlloyUI and load a module, e.g., node.
 
 	// Create HTML node
 
-	var node = A.Node.create('<div />');
+	var node = A.Node.create('<div>  </div>');
 
 	// Set CSS styles
 
