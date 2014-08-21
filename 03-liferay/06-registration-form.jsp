@@ -32,6 +32,13 @@
 <div class="hide portlet06_page">
 	<form class="portlet06_form" id="portlet06_form2" onSubmit="event.preventDefault();">
 		<fieldset>
+			<label class="control-label" for="portlet06_charInput">Write a description about yourself <em>(Must be less than 160 characters)</em>:</label>
+			<textarea name="portlet06_charInput" id="portlet06_charInput"></textarea>
+			<br />
+			<span id="portlet06_counter"></span> characters remaining.
+		</fieldset>
+
+		<fieldset>
 			<p>
 				Crop your headshot.
 			</p>
@@ -39,13 +46,6 @@
 			<div id="portlet06_imageCropper">
 				<img id="portlet06_image" src="http://alloyui.com/image-cropper/img/crop-image.jpg" />
 			</div>
-		</fieldset>
-
-		<fieldset>
-			<label class="control-label" for="portlet06_charInput">Write a description about yourself <em>(Must be less than 160 characters)</em>:</label>
-			<textarea name="portlet06_charInput" id="portlet06_charInput"></textarea>
-			<br />
-			<span id="portlet06_counter"></span> characters remaining.
 		</fieldset>
 
 		<fieldset>
@@ -73,14 +73,6 @@ Then initialize AlloyUI and load a module, e.g., node.
 	// Create variables
 
 	var formValidator = [];
-
-	// Grab pages
-	var forms = A.all('.portlet06_form');
-	var pages = A.all('.portlet06_page');
-
-	// Grab output element
-
-	var output = A.one('#portlet06_output');
 
 	// Update progress bar
 
@@ -118,6 +110,10 @@ Then initialize AlloyUI and load a module, e.g., node.
 			width: 700
 		}
 	).render();
+
+	// Grab pages
+	var forms = A.all('.portlet06_form');
+	var pages = A.all('.portlet06_page');
 
 	// Create paginator
 
@@ -186,64 +182,6 @@ Then initialize AlloyUI and load a module, e.g., node.
 		}
 	);
 
-	// Initialize AUI button
-
-	new A.Button(
-		{
-			on: {
-				click: function() {
-					updateProgress();
-
-					var validForms = 0;
-
-					var formValidatorLength = formValidator.length;
-
-					for (var i = 0; i < formValidatorLength; i++) {
-						if (!formValidator[i].hasErrors()) {
-							validForms++;
-						}
-					}
-
-					if (validForms != formValidatorLength) {
-						validForms = 0;
-					}
-
-					generateOutput(validForms);
-				}
-			},
-			srcNode: '#portlet06_submitBtn'
-		}
-	).render();
-
-	// Create generated output
-
-	var generateOutput = function(valid) {
-		var messageNode = A.one('#portlet06_message');
-		var outputNode = A.one('#portlet06_output');
-
-		var cssClass = valid ? "text-success" : "text-error";
-		var messageString = valid ? "All forms are complete!" : "Please fill out the entire form!";
-
-		var message = A.Node.create("<div class='" + cssClass + "'>" + messageString + "</div>");
-
-		messageNode.setHTML(message);
-
-		outputNode.show();
-	};
-
-	// Initialize AUI button
-
-	new A.Button(
-		{
-			on: {
-				click: function() {
-					location.reload();
-				}
-			},
-			srcNode: '#portlet06_resetBtn'
-		}
-	).render();
-
 	// Initialize datepicker
 
 	new A.DatePicker(
@@ -277,4 +215,66 @@ Then initialize AlloyUI and load a module, e.g., node.
 			srcNode: '#portlet06_image'
 		}
 	);
+
+	// Initialize AUI button
+
+	new A.Button(
+		{
+			on: {
+				click: function() {
+					updateProgress();
+
+					var validForms = 0;
+
+					var formValidatorLength = formValidator.length;
+
+					for (var i = 0; i < formValidatorLength; i++) {
+						if (!formValidator[i].hasErrors()) {
+							validForms++;
+						}
+					}
+
+					if (validForms != formValidatorLength) {
+						validForms = 0;
+					}
+
+					generateOutput(validForms);
+				}
+			},
+			srcNode: '#portlet06_submitBtn'
+		}
+	).render();
+
+	// Initialize AUI button
+
+	new A.Button(
+		{
+			on: {
+				click: function() {
+					location.reload();
+				}
+			},
+			srcNode: '#portlet06_resetBtn'
+		}
+	).render();
+
+	// Grab output element
+
+	var output = A.one('#portlet06_output');
+
+	// Create generated output
+
+	var generateOutput = function(valid) {
+		var messageNode = A.one('#portlet06_message');
+		var outputNode = A.one('#portlet06_output');
+
+		var cssClass = valid ? "text-success" : "text-error";
+		var messageString = valid ? "All forms are complete!" : "Please fill out the entire form!";
+
+		var message = A.Node.create("<div class='" + cssClass + "'>" + messageString + "</div>");
+
+		messageNode.setHTML(message);
+
+		outputNode.show();
+	};
 </aui:script>
