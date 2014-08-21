@@ -1,4 +1,5 @@
 <%@ include file="/html/portlet/init.jsp" %>
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
 
 <h1>AlloyUI - Taglib</h1>
 
