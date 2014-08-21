@@ -1285,4 +1285,4 @@ after: {
 
 * Now our registration form is complete. Test it out and see all of these AlloyUI components working together.
 
-**Completed example: [06-registration-from.html](https://github.com/eduardolundgren/alloy-ui-exercises/blob/master/02-components/06-registration-form.html)**
+**Completed example: [06-registration-form.html](https://github.com/eduardolundgren/alloy-ui-exercises/blob/master/02-components/06-registration-form.html)**
