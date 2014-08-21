@@ -50,6 +50,13 @@
 	<div class="hide page">
 		<form class="form" id="form2" onSubmit="event.preventDefault();">
 			<fieldset>
+				<label class="control-label" for="charInput">Write a description about yourself <em>(Must be less than 160 characters)</em>:</label>
+				<textarea name="charInput" id="charInput"></textarea>
+				<br />
+				<span id="counter"></span> characters remaining.
+			</fieldset>
+
+			<fieldset>
 				<p>
 					Crop your headshot.
 				</p>
@@ -57,13 +64,6 @@
 				<div id="imageCropper">
 					<img id="image" src="http://alloyui.com/image-cropper/img/crop-image.jpg" />
 				</div>
-			</fieldset>
-
-			<fieldset>
-				<label class="control-label" for="charInput">Write a description about yourself <em>(Must be less than 160 characters)</em>:</label>
-				<textarea name="charInput" id="charInput"></textarea>
-				<br />
-				<span id="counter"></span> characters remaining.
 			</fieldset>
 
 			<fieldset>
@@ -218,14 +218,6 @@
 				}
 			);
 
-			// Initialize image cropper
-
-			var imgCropper = new Y.ImageCropper(
-				{
-					srcNode: '#image'
-				}
-			);
-
 			// Initialize char counter
 
 			var charCounter = new Y.CharCounter(
@@ -233,6 +225,14 @@
 					counter: '#counter',
 					input: '#charInput',
 					maxLength: 160
+				}
+			);
+
+			// Initialize image cropper
+
+			var imgCropper = new Y.ImageCropper(
+				{
+					srcNode: '#image'
 				}
 			);
 
