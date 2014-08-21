@@ -3,17 +3,17 @@
 
 <h1>AlloyUI - Form Validator</h1>
 
-<form id="form">
-	<div class="alert alert-success hide" id="success">Success!</div>
+<form id="portlet05_form">
+	<div class="alert alert-success hide" id="portlet05_success">Success!</div>
 
-	<label for="name">Name:</label>
-	<input id="name" name="name" placeholder="Joe Bloggs" type="text" />
+	<label for="portlet05_name">Name:</label>
+	<input id="portlet05_name" name="portlet05_name" placeholder="Joe Bloggs" type="text" />
 
-	<label for="email">Email:</label>
-	<input id="email" name="email" placeholder="test@liferay.com" type="text" />
+	<label for="portlet05_email">Email:</label>
+	<input id="portlet05_email" name="portlet05_email" placeholder="test@liferay.com" type="text" />
 
-	<label for="date">Birthday:</label>
-	<input id="date" name="date" placeholder="mm/dd/yyyy" type="text" />
+	<label for="portlet05_date">Birthday:</label>
+	<input id="portlet05_date" name="portlet05_date" placeholder="mm/dd/yyyy" type="text" />
 
 	<br>
 
@@ -30,24 +30,24 @@ Then initialize AlloyUI and load a module, e.g., node.
 
 	new A.FormValidator(
 		{
-			boundingBox: '#form',
+			boundingBox: '#portlet05_form',
 			rules: {
-				email: {
+				portlet05_email: {
 					email: true,
 					required: true
 				},
-				name: {
+				portlet05_name: {
 					alpha: true,
 					required: true
 				},
-				date: {
+				portlet05_date: {
 					date: true,
 					required: true
 				}
 			},
 			on: {
 				submit: function(event) {
-					A.one('#success').show();
+					A.one('#portlet05_success').show();
 
 					event.validator.formEvent.halt();
 				}

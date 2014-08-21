@@ -3,7 +3,7 @@
 
 <h1>AlloyUI - Node</h1>
 
-<div id="foo">I am a foo element</div>
+<div id="portlet01_foo">I am a foo element</div>
 
 <!--
 Start using AlloyUI
@@ -12,7 +12,7 @@ Then initialize AlloyUI and load a module, e.g., node.
 <aui:script use="aui-node">
 	// Grab the elements
 
-	var foo = A.one('#foo');
+	var foo = A.one('#portlet01_foo');
 
 	// Create HTML node
 

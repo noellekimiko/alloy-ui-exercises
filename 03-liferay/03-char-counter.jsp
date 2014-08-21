@@ -3,8 +3,8 @@
 
 <h1>AlloyUI - Char Counter</h1>
 
-<input id="input" type="text" />
-<span id="counter"></span> character(s) remaining
+<input id="portlet03_charInput" type="text" />
+<span id="portlet03_counter"></span> character(s) remaining
 
 <!--
 Start using AlloyUI
@@ -15,8 +15,8 @@ Then initialize AlloyUI and load a module, e.g., node.
 
 	new A.CharCounter(
 		{
-			counter: '#counter',
-			input: '#input',
+			counter: '#portlet03_counter',
+			input: '#portlet03_charInput',
 			maxLength: 10
 		}
 	);

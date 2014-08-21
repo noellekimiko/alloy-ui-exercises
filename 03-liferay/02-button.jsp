@@ -3,7 +3,7 @@
 
 <h1>AlloyUI - Button</h1>
 
-<div id="foo">I am a foo button</div>
+<div id="portlet02_foo">I am a foo button</div>
 
 <!--
 Start using AlloyUI
@@ -19,7 +19,7 @@ Then initialize AlloyUI and load a module, e.g., node.
 					alert('You have clicked the button');
 				}
 			},
-			srcNode: '#foo'
+			srcNode: '#portlet02_foo'
 		}
 	).render();
 </aui:script>

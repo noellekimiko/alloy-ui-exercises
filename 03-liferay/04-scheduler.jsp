@@ -3,7 +3,7 @@
 
 <h1>AlloyUI - Scheduler</h1>
 
-<div id="scheduler"></div>
+<div id="portlet04_scheduler"></div>
 
 <!--
 Start using AlloyUI
@@ -37,7 +37,7 @@ Then initialize AlloyUI and load a module, e.g., node.
 
 	new A.Scheduler(
 		{
-			boundingBox: '#scheduler',
+			boundingBox: '#portlet04_scheduler',
 			date: new Date(2014, 9, 19),
 			eventRecorder: eventRecorder,
 			items: events,

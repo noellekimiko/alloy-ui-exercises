@@ -3,9 +3,9 @@
 
 <h1>AlloyUI - Registration Form</h1>
 
-<div id="progressBar"></div>
+<div id="portlet06_progressBar"></div>
 
-<div id="pagination" class="pagination">
+<div id="portlet06_pagination" class="pagination">
 	<ul class="pagination-content">
 		<li><a>Prev</a></li>
 		<li><a>1</a></li>
@@ -14,53 +14,53 @@
 	</ul>
 </div>
 
-<div class="page">
-	<form class="form" id="form1" onSubmit="event.preventDefault();">
+<div class="portlet06_page">
+	<form class="portlet06_form" id="portlet06_form1" onSubmit="event.preventDefault();">
 		<fieldset>
-			<label class="control-label" for="name">Name:</label>
-			<input id="name" name="name" placeholder="Joe Bloggs" type="text" />
+			<label class="control-label" for="portlet06_name">Name:</label>
+			<input id="portlet06_name" name="portlet06_name" placeholder="Joe Bloggs" type="text" />
 
-			<label class="control-label" for="email">Email:</label>
-			<input id="email" name="email" placeholder="test@liferay.com" type="text" />
+			<label class="control-label" for="portlet06_email">Email:</label>
+			<input id="portlet06_email" name="portlet06_email" placeholder="test@liferay.com" type="text" />
 
-			<label class="control-label" for="date">Birthday:</label>
-			<input id="date" name="date" placeholder="mm/dd/yyyy" type="text" />
+			<label class="control-label" for="portlet06_date">Birthday:</label>
+			<input id="portlet06_date" name="portlet06_date" placeholder="mm/dd/yyyy" type="text" />
 		</fieldset>
 	</form>
 </div>
 
-<div class="hide page">
-	<form class="form" id="form2" onSubmit="event.preventDefault();">
+<div class="hide portlet06_page">
+	<form class="portlet06_form" id="portlet06_form2" onSubmit="event.preventDefault();">
 		<fieldset>
 			<p>
 				Crop your headshot.
 			</p>
 
-			<div id="imageCropper">
-				<img id="image" src="http://alloyui.com/image-cropper/img/crop-image.jpg" />
+			<div id="portlet06_imageCropper">
+				<img id="portlet06_image" src="http://alloyui.com/image-cropper/img/crop-image.jpg" />
 			</div>
 		</fieldset>
 
 		<fieldset>
-			<label class="control-label" for="charInput">Write a description about yourself <em>(Must be less than 160 characters)</em>:</label>
-			<textarea name="charInput" id="charInput"></textarea>
+			<label class="control-label" for="portlet06_charInput">Write a description about yourself <em>(Must be less than 160 characters)</em>:</label>
+			<textarea name="portlet06_charInput" id="portlet06_charInput"></textarea>
 			<br />
-			<span id="counter"></span> characters remaining.
+			<span id="portlet06_counter"></span> characters remaining.
 		</fieldset>
 
 		<fieldset>
-			<button class="btn" id="submitBtn">Submit</button>
-			<button class="btn" id="resetBtn">Reset</button>
+			<button class="btn" id="portlet06_submitBtn">Submit</button>
+			<button class="btn" id="portlet06_resetBtn">Reset</button>
 		</fieldset>
 
-		<fieldset class="hide" id="output">
+		<fieldset class="hide" id="portlet06_output">
 			<legend class="fieldset-legend">
 				<span class="legend">
 					Output
 				</span>
 			</legend>
 
-			<div id="message"></div>
+			<div id="portlet06_message"></div>
 		</fieldset>
 	</form>
 </div>
@@ -75,12 +75,12 @@ Then initialize AlloyUI and load a module, e.g., node.
 	var formValidator = [];
 
 	// Grab pages
-	var forms = A.all('.form');
-	var pages = A.all('.page');
+	var forms = A.all('.portlet06_form');
+	var pages = A.all('.portlet06_page');
 
 	// Grab output element
 
-	var output = A.one('#output');
+	var output = A.one('#portlet06_output');
 
 	// Update progress bar
 
@@ -104,7 +104,7 @@ Then initialize AlloyUI and load a module, e.g., node.
 
 	var progressBar = new A.ProgressBar(
 		{
-			boundingBox: '#progressBar',
+			boundingBox: '#portlet06_progressBar',
 			label: '0%',
 			on: {
 				complete: function(event) {
@@ -132,9 +132,9 @@ Then initialize AlloyUI and load a module, e.g., node.
 					}
 				}
 			},
-			boundingBox: '#pagination',
+			boundingBox: '#portlet06_pagination',
 			circular: false,
-			contentBox: '#pagination .pagination-content',
+			contentBox: '#portlet06_pagination .pagination-content',
 			on: {
 				changeRequest: function(event) {
 					var lastState = event.lastState,
@@ -157,13 +157,13 @@ Then initialize AlloyUI and load a module, e.g., node.
 
 	formValidator[0] = new A.FormValidator(
 		{
-			boundingBox: '#form1',
+			boundingBox: '#portlet06_form1',
 			rules: {
-				email: {
+				portlet06_email: {
 					email: true,
 					required: true
 				},
-				name: {
+				portlet06_name: {
 					alpha: true,
 					required: true
 				}
@@ -173,12 +173,12 @@ Then initialize AlloyUI and load a module, e.g., node.
 
 	formValidator[1] = new A.FormValidator(
 		{
-			boundingBox: '#form2',
+			boundingBox: '#portlet06_form2',
 			fieldStrings: {
 				charInput: 'Word must be between 1 and 160 characters.'
 			},
 			rules: {
-				charInput: {
+				portlet06_charInput: {
 					rangeLength: [1, 160],
 					required: true
 				}
@@ -211,15 +211,15 @@ Then initialize AlloyUI and load a module, e.g., node.
 					generateOutput(validForms);
 				}
 			},
-			srcNode: '#submitBtn'
+			srcNode: '#portlet06_submitBtn'
 		}
 	).render();
 
 	// Create generated output
 
 	var generateOutput = function(valid) {
-		var messageNode = A.one('#message');
-		var outputNode = A.one('#output');
+		var messageNode = A.one('#portlet06_message');
+		var outputNode = A.one('#portlet06_output');
 
 		var cssClass = valid ? "text-success" : "text-error";
 		var messageString = valid ? "All forms are complete!" : "Please fill out the entire form!";
@@ -240,7 +240,7 @@ Then initialize AlloyUI and load a module, e.g., node.
 					location.reload();
 				}
 			},
-			srcNode: '#resetBtn'
+			srcNode: '#portlet06_resetBtn'
 		}
 	).render();
 
@@ -256,7 +256,7 @@ Then initialize AlloyUI and load a module, e.g., node.
 			popover: {
 				zIndex: 1
 			},
-			trigger: '#date'
+			trigger: '#portlet06_date'
 		}
 	);
 
@@ -264,8 +264,8 @@ Then initialize AlloyUI and load a module, e.g., node.
 
 	var charCounter = new A.CharCounter(
 		{
-			counter: '#counter',
-			input: '#charInput',
+			counter: '#portlet06_counter',
+			input: '#portlet06_charInput',
 			maxLength: 160
 		}
 	);
@@ -274,7 +274,7 @@ Then initialize AlloyUI and load a module, e.g., node.
 
 	var imgCropper = new A.ImageCropper(
 		{
-			srcNode: '#image'
+			srcNode: '#portlet06_image'
 		}
 	);
 </aui:script>
