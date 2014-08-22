@@ -3,7 +3,7 @@
 
 <h1>AlloyUI - Liferay.provide()</h1>
 
-<aui:form action="" method="post" name="fm" onSubmit='<%= "event.preventDefault();" + renderResponse.getNamespace() + "generateOutput();" %>'>
+<aui:form action="" method="post" name="fm" onSubmit='<%= "event.preventDefault(); portlet12_generateOutput();" %>'>
 	<aui:input name="name" />
 
 	<aui:input name="email">
@@ -39,7 +39,7 @@
 
 	Liferay.provide(
 		window,
-		'<portlet:namespace />generateOutput',
+		'portlet12_generateOutput',
 		function() {
 			var A = AUI();
 
