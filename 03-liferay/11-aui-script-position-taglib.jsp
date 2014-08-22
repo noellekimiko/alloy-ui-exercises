@@ -13,8 +13,4 @@
 
 <aui:form action="" method="post" name="fm">
 	<aui:input name="name" />
-
-	<aui:input name="email" />
-
-	<aui:input name="birthday" />
 </aui:form>
