@@ -43,12 +43,12 @@
 		function() {
 			var A = AUI();
 
-			var messageNode = A.one('#portlet12_message');
-
 			var date = A.one('#<portlet:namespace />birthday');
 			var email = A.one('#<portlet:namespace />email');
 			var name = A.one('#<portlet:namespace />name');
+
 			var outputNode = A.one('#<portlet:namespace />output');
+			var messageNode = A.one('#portlet12_message');
 
 			var messageString = 'My name is ' + name.val() + ' and my email address is ' + email.val() + '. My birthday is ' + date.val() + '.';
 
