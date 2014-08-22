@@ -30,7 +30,7 @@
 	</aui:button-row>
 
 	<aui:fieldset cssClass="hide" id="output">
-		<div id="message"></div>
+		<div id="portlet12_message"></div>
 	</aui:fieldset>
 </aui:form>
 
@@ -43,7 +43,7 @@
 		function() {
 			var A = AUI();
 
-			var messageNode = A.one('#message');
+			var messageNode = A.one('#portlet12_message');
 
 			var date = A.one('#<portlet:namespace />birthday');
 			var email = A.one('#<portlet:namespace />email');
